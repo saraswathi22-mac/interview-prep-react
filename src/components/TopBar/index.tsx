@@ -1,6 +1,6 @@
 import { signIn, signOut } from "next-auth/react";
 import React from "react";
-import Button from "~/components/common/Button";
+import Button from "~/components/common/Button/Button";
 import useFetchSession from "~/hooks/useSession";
 import styles from './TopBar.module.scss'
 

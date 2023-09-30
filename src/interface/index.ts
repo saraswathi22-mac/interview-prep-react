@@ -1,7 +1,7 @@
 export interface Button {
-    btnClass: string;
+    btnClass?: string;
     title: string;
-    onClick: () => void;
+    onClick?: () => void;
 }
 
 export interface GitHubAuth {
