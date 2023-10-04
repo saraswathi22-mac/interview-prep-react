@@ -1,10 +1,14 @@
 export interface Button {
-    btnClass?: string;
-    title: string;
-    onClick?: () => void;
+  btnClass?: string;
+  title: string;
+  onClick?: () => void;
 }
 
 export interface GitHubAuth {
-    clientId: string;
-    clientSecret: string;
+  clientId: string;
+  clientSecret: string;
+}
+
+export interface ArrayType {
+  map: Function;
 }
