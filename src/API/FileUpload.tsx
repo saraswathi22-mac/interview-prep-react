@@ -9,7 +9,7 @@ export const fileUpload = (file: any) => {
     "state_changed",
     (snapshot) => {
       const progress = Math.round(
-        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
       );
       console.log(progress);
     },
@@ -18,7 +18,7 @@ export const fileUpload = (file: any) => {
     },
     () => {
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
-        addFiles(downloadURL),
+        addFiles(downloadURL, file.name),
       );
     },
   );
