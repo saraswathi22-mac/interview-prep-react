@@ -3,15 +3,17 @@ import styles from "./Upload.module.scss";
 import Button from "../common/Button/Button";
 import { fileUpload } from "~/API/FileUpload";
 import { addFolder } from "~/API/Firestore";
+import CommonProgress from "../common/Progress";
 
 const UploadFiles = () => {
   const [isFileVisible, setFileVisible] = useState(false);
   const [isFolderVisible, setFolderVisible] = useState(false);
   const [folderName, setFolderName] = useState("");
+  const [progress, setProgress] = useState(0);
 
   const uploadFile = async (event: ChangeEvent<HTMLInputElement>) => {
     let file = event.target.files?.[0];
-    fileUpload(file);
+    fileUpload(file, setProgress);
   };
 
   const uploadFolder = () => {
@@ -68,6 +70,11 @@ const UploadFiles = () => {
         </>
       ) : (
         <></>
+      )}
+      {progress === 0 || progress === 100 ? (
+        <></>
+      ) : (
+        <CommonProgress progress={progress} />
       )}
     </div>
   );

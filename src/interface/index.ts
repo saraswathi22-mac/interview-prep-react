@@ -12,3 +12,7 @@ export interface GitHubAuth {
 export interface ArrayType {
   map: Function;
 }
+
+export interface Progress {
+  progress: number;
+}
