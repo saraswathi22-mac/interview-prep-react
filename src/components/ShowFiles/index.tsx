@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./ShowFiles.module.scss";
 import { fetchFiles } from "~/hooks/fetchFiles";
-import { access } from "fs";
-import { AiFillFileText } from "react-icons/ai";
+import { AiFillFolder } from "react-icons/ai";
 
 const ShowFiles = () => {
   let { fileList } = fetchFiles();
@@ -12,19 +11,33 @@ const ShowFiles = () => {
 
   return (
     <div className={styles.filesGrid}>
-      {fileList.map((file: { imgLink: ""; imgName: "" }) => {
-        return (
-          <div>
-            <div
-              className={`${styles.files} bg-green-200`}
-              onClick={() => openFile(file.imgLink)}
-            >
-              <AiFillFileText size={80} />
-              <p>{file.imgName}</p>
+      {fileList.map(
+        (file: {
+          imgLink: "";
+          imgName: "";
+          isFolder: false;
+          folderName: "";
+        }) => {
+          return (
+            <div>
+              {file.isFolder ? (
+                <div className={`${styles.files} bg-green-200`}>
+                  <AiFillFolder size={80} />
+                  <p>{file.folderName}</p>
+                </div>
+              ) : (
+                <div
+                  className={`${styles.files} bg-green-200`}
+                  onClick={() => openFile(file.imgLink)}
+                >
+                  <img className={styles.imageLink} src={file.imgLink} />
+                  <p>{file.imgName}</p>
+                </div>
+              )}
             </div>
-          </div>
-        );
-      })}
+          );
+        },
+      )}
     </div>
   );
 };
