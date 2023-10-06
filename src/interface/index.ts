@@ -17,6 +17,6 @@ export interface Progress {
   progress: number;
 }
 
-export interface ParentId {
+export interface FolderStructure {
   parentId: string;
 }

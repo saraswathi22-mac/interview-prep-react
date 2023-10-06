@@ -3,8 +3,9 @@ import styles from "./ShowFiles.module.scss";
 import { fetchFiles } from "~/hooks/fetchFiles";
 import { AiFillFolder } from "react-icons/ai";
 import { useRouter } from "next/router";
+import { FolderStructure } from "~/interface";
 
-const ShowFiles = ({parentId}) => {
+const ShowFiles = ({parentId}: FolderStructure) => {
   const router = useRouter();
   let { fileList } = fetchFiles(parentId);
   const openFile = (fileLink: string) => {

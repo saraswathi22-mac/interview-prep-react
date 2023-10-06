@@ -3,12 +3,17 @@ import { database } from "~/firebaseConfig";
 
 let files = collection(database, "files");
 
-export const addFiles = (imgLink: string, imgName: string) => {
+export const addFiles = (
+  imgLink: string,
+  imgName: string,
+  parentId: string,
+) => {
   try {
     addDoc(files, {
       imgLink: imgLink,
       imgName: imgName,
       isFolder: false,
+      parentId: parentId,
     });
   } catch (err) {
     console.log(err);
