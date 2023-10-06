@@ -19,12 +19,14 @@ export const addFolder = (payload: {
   folderName: string;
   isFolder: boolean;
   fileList: object;
+  parentId: string;
 }) => {
   try {
     addDoc(files, {
       folderName: payload.folderName,
       isFolder: payload.isFolder,
       fileList: payload.fileList,
+      parentId: payload.parentId,
     });
   } catch (err) {
     console.log(err);

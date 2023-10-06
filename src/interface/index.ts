@@ -16,3 +16,7 @@ export interface ArrayType {
 export interface Progress {
   progress: number;
 }
+
+export interface ParentId {
+  parentId: string;
+}
