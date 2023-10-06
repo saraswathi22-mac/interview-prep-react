@@ -8,7 +8,8 @@ const Folder = () => {
   let parentId = router?.query?.id;
   return (
     <div>
-      <UploadFiles parentId={(parentId = "")} />
+      <UploadFiles parentId={parentId} />
+      <ShowFiles parentId={parentId} />
     </div>
   );
 };
