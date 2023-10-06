@@ -4,9 +4,8 @@ import Button from "../common/Button/Button";
 import { fileUpload } from "~/API/FileUpload";
 import { addFolder } from "~/API/Firestore";
 import CommonProgress from "../common/Progress";
-import { ParentId } from "~/interface";
 
-const UploadFiles = ({ parentId }: ParentId) => {
+const UploadFiles = ({ parentId }) => {
   const [isFileVisible, setFileVisible] = useState(false);
   const [isFolderVisible, setFolderVisible] = useState(false);
   const [folderName, setFolderName] = useState("");
@@ -22,7 +21,7 @@ const UploadFiles = ({ parentId }: ParentId) => {
       folderName: folderName,
       isFolder: true,
       fileList: [],
-      parentId: parentId,
+      parentId: parentId || "",
     };
     addFolder(payload);
     setFolderName("");
