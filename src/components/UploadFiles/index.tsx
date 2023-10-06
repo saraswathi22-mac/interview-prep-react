@@ -6,7 +6,7 @@ import { addFolder } from "~/API/Firestore";
 import CommonProgress from "../common/Progress";
 import { ParentId } from "~/interface";
 
-const UploadFiles = ({ parentId = "" }: ParentId) => {
+const UploadFiles = ({ parentId }: ParentId) => {
   const [isFileVisible, setFileVisible] = useState(false);
   const [isFolderVisible, setFolderVisible] = useState(false);
   const [folderName, setFolderName] = useState("");
