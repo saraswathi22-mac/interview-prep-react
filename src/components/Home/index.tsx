@@ -7,8 +7,8 @@ const HomeComponent = () => {
   return (
     <div>
       <TopBar />
-      <UploadFiles />
-      <ShowFiles />
+      <UploadFiles parentId="" />
+      <ShowFiles parentId="" />
     </div>
   );
 };
