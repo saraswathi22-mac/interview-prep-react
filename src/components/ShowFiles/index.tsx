@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./ShowFiles.module.scss";
 import { fetchFiles } from "~/hooks/fetchFiles";
 import { AiFillFolder } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 const ShowFiles = () => {
+  const router = useRouter();
   let { fileList } = fetchFiles();
   const openFile = (fileLink: string) => {
     window.open(fileLink);
@@ -17,11 +19,15 @@ const ShowFiles = () => {
           imgName: "";
           isFolder: false;
           folderName: "";
+          id: "";
         }) => {
           return (
-            <div>
+            <div key={file.id}>
               {file.isFolder ? (
-                <div className={`${styles.files} bg-green-200`}>
+                <div
+                  className={`${styles.files} bg-green-200`}
+                  onClick={() => router.push(`/folder?id=${file.id}`)}
+                >
                   <AiFillFolder size={80} />
                   <p>{file.folderName}</p>
                 </div>
