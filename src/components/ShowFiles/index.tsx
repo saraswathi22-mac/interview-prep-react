@@ -4,10 +4,13 @@ import { fetchFiles } from "~/hooks/fetchFiles";
 import { AiFillFolder } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { FolderStructure } from "~/interface";
+import useFetchSession from "~/hooks/useSession";
 
-const ShowFiles = ({parentId}: FolderStructure) => {
+const ShowFiles = ({ parentId }: FolderStructure) => {
   const router = useRouter();
-  let { fileList } = fetchFiles(parentId);
+  let { session } = useFetchSession();
+  let { fileList } = fetchFiles(parentId, session?.user.email as string);
+
   const openFile = (fileLink: string) => {
     window.open(fileLink);
   };
