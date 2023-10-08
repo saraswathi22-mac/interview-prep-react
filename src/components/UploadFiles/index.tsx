@@ -9,7 +9,6 @@ import useFetchSession from "~/hooks/useSession";
 
 const UploadFiles = ({ parentId }: FolderStructure) => {
   let { session } = useFetchSession();
-  console.log(session?.user.email);
   const [isFileVisible, setFileVisible] = useState(false);
   const [isFolderVisible, setFolderVisible] = useState(false);
   const [folderName, setFolderName] = useState("");
